@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Jika file atau folder ada → serve langsung
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Selain itu semua dilempar ke index.html (SPA)
+RewriteRule ^ index.html [L]
